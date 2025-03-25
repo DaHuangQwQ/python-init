@@ -77,11 +77,6 @@ test-doc: $(VENV)/.testenv ## Run doctests
 mypy: $(VENV)/.testenv ## Run mypy checks
 	# https://github.com/python/mypy
 	$(VENV_BIN)/mypy --config-file .script/.mypy.ini --ignore-missing-imports packages/*
-	# $(VENV_BIN)/mypy --config-file .mypy.ini dbgpt/rag/ dbgpt/datasource/ dbgpt/client/ dbgpt/agent/ dbgpt/vis/ dbgpt/experimental/
-	# rag depends on core and storage, so we not need to check it again.
-	# $(VENV_BIN)/mypy --config-file .mypy.ini dbgpt/storage/
-	# $(VENV_BIN)/mypy --config-file .mypy.ini dbgpt/core/
-	# TODO: More package checks with mypy.
 
 .PHONY: coverage
 coverage: setup ## Run tests and report coverage
